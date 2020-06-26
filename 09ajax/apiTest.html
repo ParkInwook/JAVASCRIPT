@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/kakao.js"></script> -->
+</head>
+<body>
+    
+    <div>
+        <form>
+            <select multiple class="form-control select-SIDO">
+                <option>전북</option>
+                <option>전남</option>
+                <option>제주</option>
+                <option>경북</option>
+                <option>충남</option>
+                <option>인천</option>
+                <option>부산</option>
+                <option>울산</option>
+              </select>
+        </form>
+    </div>
+
+
+    <script>
+        let select_SIDO = document.querySelector(".select-SIDO");
+        select_SIDO.onchange = function(){
+            let sido = select_SIDO.value;
+            console.log(sido);
+            let link = `http://apis.data.go.kr/1192000/OceansBeachInfoService/getOceansBeachInfo?serviceKey=8vueWHm6Jk%2BqNzKIGUh1Av3FH0DZdQWHGUFry7f9m1HQkobZ5ditXb%2F3WOPXO61JaPWj%2BgEQMYcWMhMFkJJeqQ%3D%3D&SIDO_NM=${sido}&resultType=JSON&numOfRows=10`;
+            console.log(link);
+            
+            fetch(link, {
+
+                mode:"no-cors"
+
+            }).then(function(response) {
+                console.log(response)
+
+                return response.json();
+            }).then(function(data) {
+                console.log(data)
+            }) 
+
+
+        }
+
+        var data = {"getOceansBeachInfo":{"header":{"code":"00","message":"NORMAL SERVIE"},"item":[{"NUM":1,"beach_id":"141","sido_nm":"제주","gugun_nm":"제주시","sta_nm":"함덕서우봉","beach_wid":257.00,"beach_len":900.00,"beach_knd":"모래","link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=JJ02&act=view&seq=216","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"제주시동부보건소조천보건지소(064-783-6249)","lat":33.54327600,"lon":126.66927900},{"NUM":2,"beach_id":"140","sido_nm":"제주","gugun_nm":"제주시","sta_nm":"이호테우","beach_wid":60.00,"beach_len":600.00,"beach_knd":"모래","link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=JJ01&act=view&seq=209","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"노형보건지소(064-728-8721)","lat":33.49726300,"lon":126.45182100},{"NUM":3,"beach_id":"139","sido_nm":"제주","gugun_nm":"제주시","sta_nm":"삼양검은모래","beach_wid":null,"beach_len":null,"beach_knd":null,"link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=JJ01&act=view&seq=228","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"제주시동부보건소조천보건지소(064-783-6249)","lat":33.52601600,"lon":126.58580400},{"NUM":4,"beach_id":"138","sido_nm":"제주","gugun_nm":"제주시","sta_nm":"금능으뜸원","beach_wid":null,"beach_len":null,"beach_knd":null,"link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=JJ03&act=view&seq=257","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"제주시서부보건소(064-796-2911)","lat":33.38976800,"lon":126.23509100},{"NUM":5,"beach_id":"137","sido_nm":"제주","gugun_nm":"제주시","sta_nm":"곽지과물","beach_wid":0.00,"beach_len":0.00,"beach_knd":"모래","link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=JJ03&act=view&seq=214","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"북제주군애월읍납읍보건진료소(064-799-4686)","lat":33.45062700,"lon":126.30471600},{"NUM":6,"beach_id":"136","sido_nm":"제주","gugun_nm":"서귀포시","sta_nm":"화순금모래","beach_wid":40.00,"beach_len":250.00,"beach_knd":"모래","link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=SG03&act=view&seq=288","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"서귀포시서부보건소안덕보건지소(064-794-9101)","lat":33.23996700,"lon":126.33370900},{"NUM":7,"beach_id":"134","sido_nm":"제주","gugun_nm":"서귀포시","sta_nm":"중문색달","beach_wid":70.00,"beach_len":560.00,"beach_knd":"모래","link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=SG01&act=view&seq=295","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"서귀포시중문보건지소(064-738-1605)","lat":33.24512500,"lon":126.41148200},{"NUM":8,"beach_id":"133","sido_nm":"제주","gugun_nm":"서귀포시","sta_nm":"신양섭지코지","beach_wid":80.00,"beach_len":300.00,"beach_knd":"모래","link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=SG02&act=view&seq=248","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"동부보건소성산지소(064-782-2368)","lat":33.43480900,"lon":126.92302100},{"NUM":9,"beach_id":"308","sido_nm":"제주","gugun_nm":"서귀포시","sta_nm":"표선해비치","beach_wid":400.00,"beach_len":400.00,"beach_knd":null,"link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=SG02&act=view&seq=369","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"동부보건소표선지소(064-787-1304)","lat":33.32799800,"lon":126.83735500},{"NUM":10,"beach_id":"307","sido_nm":"제주","gugun_nm":"제주시","sta_nm":"김녕성세기","beach_wid":0.00,"beach_len":0.00,"beach_knd":"모래","link_addr":"http://www.jejutour.go.kr/contents/index.php?mid=TU&cat=TU03&dong=JJ02&act=view&seq=238","link_nm":"제주놀멍쉬멍","beach_img":null,"link_tel":"제주시동부보건소(064-783-5042)","lat":33.55773400,"lon":126.75946300}],"rows":null,"numOfRows":10,"pageNo":1,"totalCount":15}}
+        JSON.stringify(data);
+
+        console.log(data)
+
+    </script>
+
+</body>
+</html>
